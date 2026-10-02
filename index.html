@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harmless Prank Page</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: black;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+
+        h1 {
+            color: white;
+            font-size: 4rem;
+            text-align: center;
+            user-select: none;
+        }
+
+        .invert {
+            background-color: white !important;
+        }
+
+        .invert h1 {
+            color: black !important;
+        }
+
+        #startBtn {
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #ff0055;
+            color: white;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <button id="startBtn">Click to Start</button>
+    <h1 id="text" style="display: none;">PRINCI KALA HAI!</h1>
+
+    <!-- Replace 'audio.mp3' with the path or URL to your sound file -->
+    <audio id="prankAudio" src="audio.mp3" loop></audio>
+
+    <script>
+        const btn = document.getElementById('startBtn');
+        const text = document.getElementById('text');
+        const audio = document.getElementById('prankAudio');
+
+        btn.addEventListener('click', () => {
+            // Hide the button and show text
+            btn.style.display = 'none';
+            text.style.display = 'block';
+
+            // Play the audio track
+            audio.play();
+
+            // Toggle background flash every 200ms
+            setInterval(() => {
+                document.body.classList.toggle('invert');
+            }, 200);
+        });
+    </script>
+
+</body>
+</html>
